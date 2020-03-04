@@ -28,9 +28,7 @@ return (
         {this.showMovies()}
         </ul>
     <div style={{textAlign : "center"}}>
-    <button className="btn btn-primary" 
-    onClick = {()=>this.likeAvenger(1)}>Like{" "} 
-    <span className="badge badge-light">{this.props.hero.likeCount}</span></button></div>
+    
   </div>
 </div>
 

@@ -15,7 +15,7 @@ return(
    
         {this.state.allHeroes.map(h =>(
         <div key={Hero.id}className="col">
-                 <Hero hero={h}/>
+                 <Hero hero={h} onDelete= {()=>this.deleteHero(h.id)}/>
              </div>
         ))}
 
@@ -39,7 +39,19 @@ async componentDidMount(){
     this.setState({ allHeroes:heroes});
     
 }
+async deleteHero(heroIdToDelete){axios.delete(`http://localhost:5000/api/heroes/${heroIdToDelete}}`
+);
+
+let newHerosArray = this.state.allHeroes.filter(
+hero => hero.id != heroIdToDelete
+
+);
+this.setState({allHeros: newHerosArray});
+}
+}
+likeHero(hero){
+await axios.put(`http://localhost:5000/api/heroes/${heroIdToDelete}`},
+ likeCount: hero.likeCount+1
 
 }
-
 export default Heroes;
